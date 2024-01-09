@@ -1,0 +1,8 @@
+<?php
+
+use Rmunate\Utilities\SpellNumber;
+use Rmunate\Utilities\Validator\SpellNumberValidator;
+
+require_once __DIR__ . "/vendor/autoload.php";
+
+dd(SpellNumber::value(10));

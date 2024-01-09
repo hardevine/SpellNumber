@@ -2,42 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Rmunate\Utilities;
+namespace Rmunate\Utilities\Number\Interfece;
 
 use Closure;
-use Illuminate\Support\Facades\App;
-use Rmunate\Utilities\Utilities\Config;
-use Rmunate\Utilities\Number\Base\SpellNumberBase;
-use Rmunate\Utilities\Number\Interfece\ISpellNumber;
 
-class SpellNumber extends SpellNumberBase implements ISpellNumber
+interface ISpellNumber
 {
-    private $value;
-    private $method;
-    private $locale;
-    private $currency;
-    private $fraction;
-    private $connector;
-    private $ordinalOutput;
-    private $replacements;
-
-    public function __construct(string|int|float $value, string $method) {
-
-        //Valores recibidos por la instancia.
-        $this->value = $value;
-        $this->method = mb_strtoupper($method);
-
-        //Valores desde la configuracion.
-        $config = Config::numbers();
-
-        $this->locale = $config->locale;
-        $this->currency = $config->currency;
-        $this->fraction = $config->fraction;
-        $this->connector = $config->connector;
-        $this->ordinalOutput = $config->ordinalOutput;
-        $this->replacements = $config->replacements;
-    }
-
     /**
      * Convert the supplied numeric value to an integer or float.
      *
@@ -47,10 +17,7 @@ class SpellNumber extends SpellNumberBase implements ISpellNumber
      *
      * @return int|float The converted numeric value.
      */
-    public function toNumbers(?Closure $callback = null): int|float
-    {
-        
-    }
+    public function toNumbers(?Closure $callback = null): int|float;
 
     /**
      * Convert the numeric value to its textual representation.
@@ -61,10 +28,7 @@ class SpellNumber extends SpellNumberBase implements ISpellNumber
      *
      * @return string The textual representation of the numeric value.
      */
-    public function toLetters(?Closure $callback = null): string
-    {
-
-    }
+    public function toLetters(?Closure $callback = null): string;
 
     /**
      * Convert the numeric value to its textual representation in currency format.
@@ -75,10 +39,7 @@ class SpellNumber extends SpellNumberBase implements ISpellNumber
      *
      * @return string The currency-formatted textual representation of the numeric value.
      */
-    public function toCurrency(?Closure $callback = null): string
-    {
-
-    }
+    public function toCurrency(?Closure $callback = null): string;
 
     /**
      * Convert the numeric value to its Roman numeral representation.
@@ -89,10 +50,7 @@ class SpellNumber extends SpellNumberBase implements ISpellNumber
      *
      * @return string The Roman numeral representation of the numeric value.
      */
-    public function toRomanNumeral(?Closure $callback = null): string
-    {
-
-    }
+    public function toRomanNumeral(?Closure $callback = null): string;
 
     /**
      * Convert the supplied numeric value to its summary representation.
@@ -103,10 +61,7 @@ class SpellNumber extends SpellNumberBase implements ISpellNumber
      *
      * @return string The summary representation of the numeric value.
      */
-    public function toSummary(?Closure $callback = null): string
-    {
-
-    }
+    public function toSummary(?Closure $callback = null): string;
 
     /**
      * Convert the numeric value to its textual representation in the specified currency format.
@@ -117,10 +72,7 @@ class SpellNumber extends SpellNumberBase implements ISpellNumber
      *
      * @return string The currency-formatted textual representation of the numeric value.
      */
-    public function toCurrencyFormat(?Closure $callback = null): string
-    {
-
-    }
+    public function toCurrencyFormat(?Closure $callback = null): string;
 
     /**
      * Convert the numeric value to its percentage representation.
@@ -132,10 +84,7 @@ class SpellNumber extends SpellNumberBase implements ISpellNumber
      *
      * @return string The percentage representation of the numeric value.
      */
-    public function toPercent(int $digits = 2, ?Closure $callback = null): string
-    {
-
-    }
+    public function toPercent(int $digits = 2, ?Closure $callback = null): string;
 
     /**
      * Convert the numeric value to its scientific notation representation.
@@ -146,10 +95,7 @@ class SpellNumber extends SpellNumberBase implements ISpellNumber
      *
      * @return string The scientific notation representation of the numeric value.
      */
-    public function toScientific(?Closure $callback = null): string
-    {
-
-    }
+    public function toScientific(?Closure $callback = null): string;
 
     /**
      * Convert the numeric value to its clock time representation.
@@ -160,10 +106,7 @@ class SpellNumber extends SpellNumberBase implements ISpellNumber
      *
      * @return string The clock time representation of the numeric value.
      */
-    public function toClock(?Closure $callback = null): string
-    {
-
-    }
+    public function toClock(?Closure $callback = null): string;
 
     /**
      * Convert the numeric value to its ordinal representation.
@@ -175,8 +118,5 @@ class SpellNumber extends SpellNumberBase implements ISpellNumber
      *
      * @return string The ordinal representation of the numeric value.
      */
-    public function toOrdinal(?string $attr = null, ?Closure $callback = null): string
-    {
-
-    }
+    public function toOrdinal(?string $attr = null, ?Closure $callback = null): string;
 }
